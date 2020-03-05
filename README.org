@@ -1,0 +1,46 @@
+#+TITLE: Scanning books
+
+Use an [[https://files.support.epson.com/docid/cpd4/cpd40083/index.html][EPSON 4630]] to scan pages to a USB stick,
+using the sheet feeder.  It will scan continuously
+if you keep the feeder full, appending the pages
+to the same file.  However, if you don't
+put the next stack in before it takes the last page
+in the current stack, it will end the current job
+and start a new one.
+
+This apparently causes it to overwrite the file.
+
+
+
+[[https://en.wikipedia.org/wiki/PDF][PDF]]
+
+* Software
+
+** poppler-utils
+   
+#+begin_src sh
+  sudo apt install poppler-utils
+#+end_src
+
+[[https://en.wikipedia.org/wiki/Poppler_(software)][Poppler]] library
+
+| pdfunite    |
+| pdfseparate |
+| pdfimages   |
+| pdfinfo     |
+
+| 600 dpi | Image+Text | ~ 2MB / page |
+
+** [[https://github.com/borkdude/babashka][babashka]]
+   
+   Installing
+   #+begin_src sh
+     bash <(curl -s https://raw.githubusercontent.com/borkdude/babashka/master/install)
+   #+end_src
+
+* Equipment
+  * [[https://files.support.epson.com/docid/cpd4/cpd40083/index.html][EPSON 4630]] all-in-one printer/scanner
+  * 64GB USB memory
+
+* References
+  * [[https://www.quora.com/How-can-I-convert-my-800-page-book-into-a-PDF][List of some scanners with commentary]]
