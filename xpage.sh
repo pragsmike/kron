@@ -47,9 +47,27 @@ ls ? ?? | bb -o -i '(map #(format "mv %s page-2-%s.pdf" % (+ (clojure.edn/read-s
 pdfseparate $SRCDIR/EPSON_46-101.pdf %d
 for i in ? ??; do
     pdfimages $i -j d &&
+        convert d-000.jpg -quality 8 $i.pdf &&
+        mv $i.pdf $i
+done
+ls ? ?? | bb -o -i '(map #(format "mv %s page-3-%s.pdf" % (+ (clojure.edn/read-string %) 45)) *input*)' | sh
+
+
+pdfseparate $SRCDIR/EPSON_102-134.pdf %d
+for i in ? ??; do
+    pdfimages $i -j d &&
+        convert d-000.jpg -quality 8 $i.pdf &&
+        mv $i.pdf $i
+done
+ls ? ?? | bb -o -i '(map #(format "mv %s page-4-%s.pdf" % (+ (clojure.edn/read-string %) 45)) *input*)' | sh
+
+
+pdfseparate $SRCDIR/EPSON_135-166.pdf %d
+for i in ? ??; do
+    pdfimages $i -j d &&
     convert d-000.jpg -quality 8 $i.pdf &&
     mv $i.pdf $i
 done
-ls ? ?? | bb -o -i '(map #(format "mv %s page-3-%s.pdf" % (+ (clojure.edn/read-string %) 45)) *input*)' | sh
+ls ? ?? | bb -o -i '(map #(format "mv %s page-5-%s.pdf" % (+ (clojure.edn/read-string %) 45)) *input*)' | sh
 
 rm -f d-000.jpg

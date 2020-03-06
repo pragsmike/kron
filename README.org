@@ -1,78 +1,32 @@
-#+TITLE: Scanning books
+#+TITLE: Gabriel Kron's Diakoptics
 
-Use an [[https://files.support.epson.com/docid/cpd4/cpd40083/index.html][EPSON 4630]] to scan pages to a USB stick,
-using the sheet feeder. 
+I was describing compositionality to a retired physicist.  He said
+it reminded him of Gabriel Kron's work on systems analysis.
 
-Make the files from USB stick appear in the directory =scans=.
- 
-Run =xpage.sh= to extract each page to its own pdf, in =pages=.
+Kron developed a method of analyzing systems by "tearing" them
+into sections, solving the sections, and then combining the
+solutions to produce a solution to the system.
 
+He was an interesting character who deserves to be celebrated
+more than he has been.
 
-* Hosting
+Kron's books are long out of print and not easy to find.
+I'm trying to collect and digitize some of it.
+This repo is where I'm keeping notes and tooling for doing that.
 
-  How to make the files available?
+Here are the books I've found so far:
+
+* Diakoptics
   
-  Required: Publish one PDF of the reduced-size page images.
-  Nice: Publish the raw scan data.
+  1963, 166 pages.
+  This is the only one I've yet scanned.
+
+* Tensors for Circuits
   
-  Azure storage blobs would do the trick, but they'll start costing
-  money in a few weeks.
+  This is a Dover edition paperback.
+
+* Gabriel Kron and System Theory
   
-
-
-* Software
-
-** poppler-utils
-   
-#+begin_src sh
-  sudo apt install poppler-utils
-#+end_src
-
-[[https://en.wikipedia.org/wiki/Poppler_(software)][Poppler]] library
-
-| pdfunite    |
-| pdfseparate |
-| pdfimages   |
-| pdfinfo     |
-
-| 600 dpi | Image+Text | ~ 2MB / page |
-
-** [[https://github.com/borkdude/babashka][babashka]]
-   
-   Installing
-   #+begin_src sh
-     bash <(curl -s https://raw.githubusercontent.com/borkdude/babashka/master/install)
-   #+end_src
-** imagemagick
-   #+begin_src sh
-      sudo apt-get install imagemagick
-      sudo mv /etc/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xmlout
-   #+end_src
-   
-   The second step is necessary to avoid a security workaround.
-   [[https://askubuntu.com/questions/1081895/trouble-with-batch-conversion-of-png-to-pdf-using-convert][convert-im6.q16: not authorized `d.pdf']]
-   
-
-  
-  
-* Equipment
-  
-** [[https://files.support.epson.com/docid/cpd4/cpd40083/index.html][EPSON 4630]] all-in-one printer/scanner
-   
-It will scan continuously if you keep the feeder full, appending the
-pages to the same file. However, if you don't put the next stack in
-before it takes the last page in the current stack, it will end the
-current job and start a new one.
-
-This apparently causes it to overwrite the file.
-
-
-
-** 64GB USB memory stick
-   
-The files are about 2.5MB per page, so 170 pages -> 425 MB
-
-* References
-  * [[https://www.quora.com/How-can-I-convert-my-800-page-book-into-a-PDF][List of some scanners with commentary]]
-    
-  * [[https://en.wikipedia.org/wiki/PDF][PDF]] format
+  This is not Kron's own work, but rather a tribute
+  by his friends and colleagues.
+  Hardback.
